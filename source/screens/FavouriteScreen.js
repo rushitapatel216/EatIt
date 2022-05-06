@@ -8,6 +8,7 @@ import { DrawerActions } from '@react-navigation/native';
 import { fontSizes } from '../utils/Fontsize';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { Entree } from '../dummyData';
+import { string } from '../utils/Strings';
 
 
 export default function FavouriteScreen(props) {
@@ -27,7 +28,7 @@ export default function FavouriteScreen(props) {
             <HeaderComponant
                 Iconleft={<EvilIcons name={'navicon'} size={26} color={Colors.white} style={styles.icon} onPress={() => props.navigation.dispatch(DrawerActions.openDrawer())} />}
                 title={DrawernString.Favourite}
-                IconRight={<Text style={styles.text}>Edit</Text>}
+                IconRight={<Text style={styles.text}>{string.edit}</Text>}
             />
             {/* <FlatList
                 data={Entree}

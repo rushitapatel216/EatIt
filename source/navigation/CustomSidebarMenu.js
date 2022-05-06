@@ -6,6 +6,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-nat
 import Colors from '../utils/colors';
 import { fontSizes } from '../utils/Fontsize';
 import style from '../Layout/globalStyle';
+import { string } from '../utils/Strings';
 
 const CustomSidebarMenu = (props) => {
     return (
@@ -16,7 +17,7 @@ const CustomSidebarMenu = (props) => {
                     style={styles.sideMenuProfileIcon}
                 />
                 <Text style={styles.headertext}>Taylor swift</Text>
-                <Text style={styles.text}>Edit profile</Text>
+                <Text style={styles.text}>{string.editprofile}</Text>
             </View>
             <DrawerContentScrollView {...props} style={styles.bottomcontainer}>
                 <DrawerItemList {...props} />

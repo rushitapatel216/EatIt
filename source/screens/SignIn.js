@@ -50,7 +50,7 @@ const SignIn = (props) => {
                         />
                         <Text style={styles.text}>OR</Text>
                         <ButtonComponents
-                            title={TextInputString.SignInWithTwitter}
+                            title={TextInputString.Signupwithgoogle}
                             onPress={() => props.navigation.navigate(StacknString.SignIn)}
                             titleColor={Colors.white}
                             style={[styles.button, { backgroundColor: Colors.twitterbtncolor }]}

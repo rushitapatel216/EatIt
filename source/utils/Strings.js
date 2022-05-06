@@ -14,5 +14,7 @@ export const string = {
     entercode: 'ENTER CODE',
     fromsms: 'from sms',
     notreceivemess: 'Do not recieve sms',
-    repeat: 'reapet'
+    repeat: 'reapet',
+    edit: 'Edit',
+    editprofile: 'Edit profile '
 }

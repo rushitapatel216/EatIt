@@ -24,7 +24,7 @@ export const TextInputString = {
     Numberplacehol: '-123 3424 334',
     Name: 'Name',
     TaylorSwift: 'Taylor Swift',
-    SignInWithTwitter: 'Sign In With Twitter',
+    Signupwithgoogle: 'Sign In With Google',
     SignInWithFacebook: 'Sign In With Facebook',
     Send: 'Send',
     Done: 'Done',
