@@ -5,7 +5,8 @@ import Colors from '../../utils/colors';
 import { fontSizes } from '../../utils/Fontsize';
 
 const Textinput = (props) => {
-    const { errorText, text, placeholder, keyboardType, style, textInputStyle } = props
+    const { errorText, text, placeholder, keyboardType, style, textInputStyle, onChangeText, value, secureTextEntry
+    } = props
     return (
         <View style={style}>
             <Text style={styles.textInputTitle}>{text}</Text>
@@ -13,8 +14,11 @@ const Textinput = (props) => {
             <TextInput
                 style={[styles.inputtext, textInputStyle]}
                 placeholder={placeholder}
+                onChangeText={onChangeText}
+                value={value}
                 keyboardType={keyboardType == 'Number' ? 'numeric' : 'default'}
                 placeholderTextColor={props.placeholderTextColor}
+                secureTextEntry={secureTextEntry}
             />
             {errorText &&
                 <Text style={styles.errorText}>{errorText}</Text>}

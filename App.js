@@ -12,12 +12,14 @@ import DataScreen from "./source/screens/DataScreen";
 import { StacknString } from "./source/utils/constant";
 import AddcartScreen from "./source/screens/AddcartScreen";
 import MycartScreen from "./source/screens/MyCartScreen";
+import SplashScreen from "./source/screens/SplashScreen";
 
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name={StacknString.Splash} component={SplashScreen} />
         <Stack.Screen name={StacknString.Home} component={EatitScreen} />
         <Stack.Screen name={StacknString.SignIn} component={SignIn} />
         <Stack.Screen name={StacknString.SignUp} component={SignUpScreen} />

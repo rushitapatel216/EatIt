@@ -16,5 +16,9 @@ export const string = {
     notreceivemess: 'Do not recieve sms',
     repeat: 'reapet',
     edit: 'Edit',
-    editprofile: 'Edit profile '
+    editprofile: 'Edit profile ',
+    logout: 'Log out',
+    emailerror: 'Enter valid email',
+    passworderror: 'Enter valid password',
+    nameerror: 'enter valid name'
 }
