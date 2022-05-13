@@ -11,9 +11,46 @@ import { StacknString, TextInputString } from '../utils/constant';
 import style from '../Layout/globalStyle';
 import { fontSizes } from '../utils/Fontsize';
 import { string } from '../utils/Strings';
+import auth from "@react-native-firebase/auth"
+import { setUserLogin } from '../utils/storage';
 
 export default function SignUpScreen(props) {
     const [isSelected, setSelection] = useState(false);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const createUser = () => {
+        if (name == "") {
+            alert(string.nameerror);
+        }
+        else if (password == "") {
+            alert(string.passworderror);
+        }
+        else if (email == "") {
+            alert(string.emailerror);
+        }
+        else if (isSelected !== true) {
+            alert(string.termserrortext)
+        }
+        else {
+            auth()
+                .createUserWithEmailAndPassword(email, password)
+                .then((r) => {
+                    setUserLogin("true");
+                    props.navigation.navigate(StacknString.Drawer)
+                })
+                .catch(error => {
+                    if (error.code === 'auth/email-already-in-use') {
+                        alert(error);
+                    }
+                    else if (error.code === 'auth/invalid-email') {
+                        alert(error);
+                    }
+                    console.error(error);
+                });
+        }
+    }
     return (
         <ImageBackground source={{ uri: Images.bacgroundImage }} style={style.image} >
             <KeyboardAvoidingView behavior='height' style={styles.container} >
@@ -26,13 +63,27 @@ export default function SignUpScreen(props) {
                             keyboardType={TextInputString.default}
                             style={[styles.textinput, { marginTop: hp('4%') }]}
                             placeholderTextColor={Colors.white}
+                            onChangeText={newName => setName(newName)}
+                            value={name}
                         />
                         <Textinput
-                            text={TextInputString.Number}
-                            placeholder={TextInputString.Numberplacehol}
-                            keyboardType={TextInputString.Number}
+                            text={TextInputString.Email}
+                            placeholder={TextInputString.Enteremail}
+                            keyboardType={TextInputString.default}
                             style={[styles.textinput, { marginTop: hp('2%') }]}
                             placeholderTextColor={Colors.white}
+                            onChangeText={newEmail => setEmail(newEmail)}
+                            value={email}
+                        />
+                        <Textinput
+                            text={TextInputString.Password}
+                            placeholder={TextInputString.Enterpassword}
+                            secureTextEntry={true}
+                            keyboardType={TextInputString.default}
+                            style={[styles.textinput, { marginTop: hp('2%') }]}
+                            placeholderTextColor={Colors.white}
+                            onChangeText={newPassword => setPassword(newPassword)}
+                            value={password}
                         />
                     </View>
                     <View style={styles.textcontainer}>
@@ -48,7 +99,7 @@ export default function SignUpScreen(props) {
                 <View style={styles.btncontainer}>
                     <ButtonComponents
                         title={TextInputString.SignUp}
-                        onPress={isSelected == true ? () => props.navigation.navigate(StacknString.Password) : () => alert(string.termserrortext)}
+                        onPress={() => createUser(name, email, password)}
                         titleColor={Colors.white}
                         style={styles.signupbtn}
                     />

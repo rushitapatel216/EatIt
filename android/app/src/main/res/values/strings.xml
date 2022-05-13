@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">eatitpro</string>
+    <string name="facebook_app_id">575156467126445</string>
+    <string name="facebook_client_token">bdde7a5371cdf502dc3dfcd1d244c68b</string>
 </resources>

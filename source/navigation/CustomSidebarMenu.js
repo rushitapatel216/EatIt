@@ -7,8 +7,17 @@ import Colors from '../utils/colors';
 import { fontSizes } from '../utils/Fontsize';
 import style from '../Layout/globalStyle';
 import { string } from '../utils/Strings';
+import { StacknString } from '../utils/constant';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { removeUserLogin } from '../utils/storage';
 
 const CustomSidebarMenu = (props) => {
+    const onPressLogoutBtn = () => {
+        removeUserLogin()
+            .then(() => {
+                props.navigation.navigate(StacknString.Home)
+            })
+    }
     return (
         <SafeAreaView style={style.mainContainer}>
             <View style={styles.conatainer}>
@@ -21,6 +30,9 @@ const CustomSidebarMenu = (props) => {
             </View>
             <DrawerContentScrollView {...props} style={styles.bottomcontainer}>
                 <DrawerItemList {...props} />
+                <TouchableOpacity style={[styles.conatainer, { marginTop: hp('4%') }]} onPress={onPressLogoutBtn} >
+                    <Text style={[styles.text, { ...fontSizes.headingfont }]}>{string.logout}</Text>
+                </TouchableOpacity>
             </DrawerContentScrollView>
         </SafeAreaView>
     );

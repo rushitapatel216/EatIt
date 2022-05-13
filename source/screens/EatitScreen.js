@@ -1,5 +1,5 @@
-import React from "react";
-import { View, StyleSheet, ImageBackground, Text, Image } from "react-native";
+import React, { useEffect } from "react";
+import { View, StyleSheet, ImageBackground, Text, Image, BackHandler } from "react-native";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-native-responsive-screen";
 import Images from "../asset";
 import ButtonComponents from '../Components/large/ButtonComponents';
@@ -11,6 +11,13 @@ import { fontSizes } from "../utils/Fontsize";
 import { string } from "../utils/Strings";
 
 const Eatit = (props) => {
+    useEffect(() => {
+        const backHandler = BackHandler.addEventListener(
+            "hardwareBackPress",
+            () => BackHandler.exitApp()
+        );
+        return () => backHandler.remove();
+    }, []);
     const onPressSignInButton = () => {
         props.navigation.navigate(StacknString.SignIn)
     }

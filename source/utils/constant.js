@@ -11,10 +11,11 @@ export const StacknString = {
     Sign: 'Sign',
     Data: 'Data',
     AddCart: 'Addcart',
-    mycart: 'Mycart'
+    mycart: 'Mycart',
+    Splash: 'Splash'
 }
 export const TextInputString = {
-    Phone: 'Phone',
+    Email: 'Email',
     PhoneNumber: 'Phone Number',
     Number: 'Number',
     Password: 'Password',
@@ -32,7 +33,8 @@ export const TextInputString = {
     AddCart: 'ADD TO CART',
     Addfavourite: 'ADD TO FAVOURITE',
     Send: 'Send',
-    Enterpassword: 'Enter Password'
+    Enterpassword: 'Enter Password',
+    Enteremail: 'Enter Email'
 }
 export const DrawernString = {
     Menu: 'menu',

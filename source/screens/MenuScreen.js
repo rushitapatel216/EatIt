@@ -1,5 +1,5 @@
-import { View, Text, ImageBackground, StyleSheet, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, BackHandler } from 'react-native'
+import React, { useEffect } from 'react'
 import Images from '../asset'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import Colors from '../utils/colors'
@@ -12,6 +12,13 @@ import { fontSizes } from '../utils/Fontsize';
 import style from '../Layout/globalStyle'
 
 export default function MenuScreen(props) {
+    useEffect(() => {
+        const backHandler = BackHandler.addEventListener(
+            "hardwareBackPress",
+            () => BackHandler.exitApp()
+        );
+        return () => backHandler.remove();
+    }, []);
     return (
         <View style={style.mainContainer}>
             <ImageBackground source={Images.MenuImage} style={styles.image}>

@@ -1,5 +1,5 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import MenuScreen from '../screens/MenuScreen';
 import MycartScreen from '../screens/MyCartScreen';
 import OfferScreen from '../screens/OfferScreen';
@@ -36,7 +36,6 @@ export default function Drawernavigation() {
             <Drawer.Screen name={DrawernString.Menu} component={MenuScreen}
                 options={{
                     drawerIcon: (({ focused }) => <Ionicons name={'fast-food-sharp'} size={hp('3.5%')} color={Colors.white} />),
-
                 }} />
             <Drawer.Screen name={DrawernString.Offers} component={OfferScreen}
                 options={{ drawerIcon: (({ focused }) => <MaterialIcons name={'local-offer'} size={hp('3.5%')} color={Colors.white} />) }} />

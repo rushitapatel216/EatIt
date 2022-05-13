@@ -23,7 +23,6 @@ const Password = (props) => {
                         keyboardType={TextInputString.Number}
                         style={styles.textinput}
                         placeholderTextColor={Colors.white}
-                        borderBottomWidth={1}
                     />
                 </View>
                 <View style={styles.btncontainer}>
@@ -66,7 +65,9 @@ const styles = StyleSheet.create({
     },
     textinput: {
         marginTop: hp('7%'),
-        width: wp('80%')
+        width: wp('80%'),
+        borderBottomWidth: 1,
+        borderBottomColor: Colors.bordercolor
     },
     btncontainer: {
         alignItems: 'center',
